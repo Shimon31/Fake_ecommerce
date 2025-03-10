@@ -6,9 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fake_store.base.baseFragment
-import com.example.fake_store.databinding.FragmentHomeBinding
+import com.example.fake_store.databinding.FragmentProfileBinding
 
-class HomeFragment : baseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+
+class ProfileFragment : baseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
 
 

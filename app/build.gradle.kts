@@ -35,6 +35,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -49,13 +53,12 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
 
+    // Jetpack Compose integration
+    implementation(libs.androidx.navigation.compose)
 
-        // Jetpack Compose integration
-        implementation(libs.androidx.navigation.compose)
-
-        // Views/Fragments integration
-        implementation(libs.androidx.navigation.fragment)
-        implementation(libs.androidx.navigation.ui)
+    // Views/Fragments integration
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -82,4 +85,4 @@ dependencies {
 
     implementation(libs.androidx.fragment.ktx.v161)
 
-    }
+}
