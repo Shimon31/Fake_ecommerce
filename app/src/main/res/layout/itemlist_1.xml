@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview1"
         android:layout_width="240dp"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_margin="10dp"
         app:cardCornerRadius="12dp">
 
@@ -68,6 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:maxLines="2"
+                android:ellipsize="end"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 app:layout_constraintTop_toBottomOf="@id/productsOfferPrice" />
 
@@ -99,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kodchasan"
                 android:text="(34)"
+                android:layout_marginLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="@id/ratingIV"
                 app:layout_constraintStart_toEndOf="@id/ratingTV"
                 app:layout_constraintTop_toTopOf="@id/ratingIV" />
@@ -109,10 +112,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kodchasan"
                 android:text="Category"
-                app:layout_constraintBottom_toBottomOf="@id/ratingIV"
-                app:layout_constraintStart_toEndOf="@id/ratingTotalTV"
-                app:layout_constraintEnd_toStartOf="@id/staffPickTV"
-                app:layout_constraintTop_toTopOf="@id/ratingIV" />
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/ratingIV"
+                app:layout_constraintStart_toStartOf="parent"/>
 
 
             <TextView
@@ -128,9 +130,9 @@
                 android:textColor="#2FA090"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/ratingIV"
+                app:layout_constraintBottom_toBottomOf="@id/categoryTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/ratingIV" />
+                app:layout_constraintTop_toTopOf="@id/categoryTV" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

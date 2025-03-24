@@ -11,4 +11,9 @@ class GetProductsRepo @Inject constructor(private val service: ProductService) {
         return service.getAllProducts()
     }
 
+    suspend fun getProductById(id:Int):Response<ResponseProductItem>{
+
+        return service.getProductsById(id)
+    }
+
 }

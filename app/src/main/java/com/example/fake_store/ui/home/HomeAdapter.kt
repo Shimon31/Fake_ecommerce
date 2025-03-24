@@ -9,7 +9,13 @@ import coil.load
 import com.example.fake_store.data.product.ResponseProductItem
 import com.example.fake_store.databinding.Itemlist1Binding
 
-class HomeAdapter : ListAdapter<ResponseProductItem, HomeAdapter.HomeViewHolder>(comparator) {
+class HomeAdapter(private val listener: Listener) :
+    ListAdapter<ResponseProductItem, HomeAdapter.HomeViewHolder>(comparator) {
+
+
+    interface Listener {
+        fun itemClick(id: Int)
+    }
 
 
     class HomeViewHolder(val binding: Itemlist1Binding) : RecyclerView.ViewHolder(binding.root)
@@ -25,19 +31,26 @@ class HomeAdapter : ListAdapter<ResponseProductItem, HomeAdapter.HomeViewHolder>
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-       getItem(position).let {
+        getItem(position).let {
 
-           holder.binding.apply {
-               productImage.load(it.image)
-               productName.text = it.title
-               productsOfferPrice.text = "$ ${it.price}"
-               productDescription.text = it.description
-               categoryTV.text = it.category
+            holder.binding.apply {
+                productImage.load(it.image)
+                productName.text = it.title
+                productsOfferPrice.text = "$ ${it.price}"
+                productDescription.text = it.description
+                categoryTV.text = it.category
+                ratingTV.text = "${it.rating.rate}"
+                ratingTotalTV.text = "(${it.rating.count})"
+
+                holder.itemView.setOnClickListener {
+
+                    listener.itemClick(it.id)
+                }
 
 
-           }
+            }
 
-       }
+        }
     }
 
     companion object {
@@ -56,7 +69,6 @@ class HomeAdapter : ListAdapter<ResponseProductItem, HomeAdapter.HomeViewHolder>
             ): Boolean {
                 return oldItem.id == newItem.id
             }
-
 
         }
 

@@ -11,10 +11,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repo: GetProductsRepo) :ViewModel() {
+class HomeViewModel @Inject constructor(private val repo: GetProductsRepo) : ViewModel() {
 
     var _allProductResponse = MutableLiveData<List<ResponseProductItem>>()
-    val allProductResponse : LiveData<List<ResponseProductItem>>
+    val allProductResponse: LiveData<List<ResponseProductItem>>
         get() = _allProductResponse
 
 
@@ -22,16 +22,33 @@ class HomeViewModel @Inject constructor(private val repo: GetProductsRepo) :View
         getAllProducts()
     }
 
-private fun getAllProducts(){
+    private fun getAllProducts() {
 
-viewModelScope.launch {
+        viewModelScope.launch {
 
-    val response = repo.getAllProducts()
+            val response = repo.getAllProducts()
 
-    if (response.isSuccessful){
-        _allProductResponse.postValue(response.body())
+            if (response.isSuccessful) {
+                _allProductResponse.postValue(response.body())
+            }
+
+        }
+
+    }
+
+    var _productResponse = MutableLiveData<ResponseProductItem>()
+    val productResponse: LiveData<ResponseProductItem>
+        get() = _productResponse
+
+     fun getProductById(id: Int) {
+        viewModelScope.launch {
+            val response = repo.getProductById(id)
+            if (response.isSuccessful) {
+                _productResponse.postValue(response.body())
+            }
+        }
+
+
     }
 
 }
-
-}}
