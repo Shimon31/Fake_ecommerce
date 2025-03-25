@@ -25,8 +25,13 @@ class DetailsFragment : baseFragment<FragmentDetailsBinding>(FragmentDetailsBind
         viewmodel.productResponse.observe(viewLifecycleOwner) {
 
             binding.apply {
-
-
+                productImage.load(it.image)
+                productName.text = it.title
+                productsOfferPrice.text = "$ ${it.price}"
+                productDescription.text = it.description
+                categoryTV.text = it.category
+                ratingTV.text = "${it.rating.rate}"
+                ratingTotalTV.text = "(${it.rating.count})"
             }
 
         }

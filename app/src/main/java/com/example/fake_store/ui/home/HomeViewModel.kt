@@ -1,5 +1,6 @@
 package com.example.fake_store.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -42,12 +43,12 @@ class HomeViewModel @Inject constructor(private val repo: GetProductsRepo) : Vie
 
      fun getProductById(id: Int) {
         viewModelScope.launch {
-            val response = repo.getProductById(id)
+            val response = repo.getProductById(20)
+            Log.d("TAG", "getProductById: ${response.body()}")
             if (response.isSuccessful) {
                 _productResponse.postValue(response.body())
             }
         }
-
 
     }
 

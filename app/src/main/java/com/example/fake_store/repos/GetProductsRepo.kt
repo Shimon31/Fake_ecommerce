@@ -1,5 +1,6 @@
 package com.example.fake_store.repos
 
+import android.util.Log
 import com.example.fake_store.api.ProductService
 import com.example.fake_store.data.product.ResponseProductItem
 import retrofit2.Response
@@ -13,6 +14,8 @@ class GetProductsRepo @Inject constructor(private val service: ProductService) {
 
     suspend fun getProductById(id:Int):Response<ResponseProductItem>{
 
+        val data = service.getProductsById(id)
+        Log.d("TAG", "getProductById: ${data.body()}")
         return service.getProductsById(id)
     }
 
