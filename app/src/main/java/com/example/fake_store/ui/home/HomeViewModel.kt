@@ -41,15 +41,15 @@ class HomeViewModel @Inject constructor(private val repo: GetProductsRepo) : Vie
     val productResponse: LiveData<ResponseProductItem>
         get() = _productResponse
 
-     fun getProductById(id: Int) {
+    fun getProductById(id:Int) {
         viewModelScope.launch {
-            val response = repo.getProductById(20)
-            Log.d("TAG", "getProductById: ${response.body()}")
-            if (response.isSuccessful) {
+            val response = repo.getProductById(5) // ✅ Now using passed ID
+            if (response.isSuccessful && response.body() != null) {
                 _productResponse.postValue(response.body())
             }
         }
-
     }
+
+
 
 }

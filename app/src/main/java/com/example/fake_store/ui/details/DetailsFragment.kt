@@ -22,6 +22,7 @@ class DetailsFragment : baseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         viewmodel.productResponse.observe(viewLifecycleOwner) {
 
             binding.apply {
@@ -32,6 +33,7 @@ class DetailsFragment : baseFragment<FragmentDetailsBinding>(FragmentDetailsBind
                 categoryTV.text = it.category
                 ratingTV.text = "${it.rating.rate}"
                 ratingTotalTV.text = "(${it.rating.count})"
+
             }
 
         }

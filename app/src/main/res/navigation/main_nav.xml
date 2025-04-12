@@ -29,4 +29,9 @@
         android:name="com.example.fake_store.ui.details.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/wishListFragment"
+        android:name="com.example.fake_store.WishListFragment"
+        android:label="fragment_wish_list"
+        tools:layout="@layout/fragment_wish_list" />
 </navigation>
