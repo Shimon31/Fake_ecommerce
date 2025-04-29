@@ -11,6 +11,9 @@ import com.example.fake_store.databinding.FragmentProfileBinding
 
 class ProfileFragment : baseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
 
 }
