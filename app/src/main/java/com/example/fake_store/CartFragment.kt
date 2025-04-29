@@ -11,5 +11,8 @@ import com.example.fake_store.databinding.FragmentCartBinding
 
 class CartFragment : baseFragment<FragmentCartBinding>(FragmentCartBinding::inflate) {
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
 }
