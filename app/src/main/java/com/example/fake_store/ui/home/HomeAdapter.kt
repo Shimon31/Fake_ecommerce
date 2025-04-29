@@ -53,5 +53,26 @@ class HomeAdapter(private val listener: Listener) :
         }
     }
 
+    companion object {
+
+        var comparator = object : DiffUtil.ItemCallback<ResponseProductItem>() {
+            override fun areItemsTheSame(
+                oldItem: ResponseProductItem,
+                newItem: ResponseProductItem
+            ): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(
+                oldItem: ResponseProductItem,
+                newItem: ResponseProductItem
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+        }
+
+
+    }
 
 }
